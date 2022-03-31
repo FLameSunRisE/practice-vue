@@ -2,7 +2,9 @@ Vue.createApp({
     data() {
         return {
             issue: "",
-            issue2: ""
+            issue2: "",
+            counter: 100,
+            formatIssue2: "SAMPLE"
         }
     },
     methods: {
@@ -15,6 +17,12 @@ Vue.createApp({
         },
         resetIssue2() {
             this.issue2 = ""
+        },
+        increase() {
+            this.counter += 1
+        },
+        decrease() {
+            this.counter -= 1
         }
     },
     computed: {
@@ -23,8 +31,14 @@ Vue.createApp({
             if (this.issue === "") {
                 return ""
             }
-            // return `[!!]${this.issue}`
-            return this.issue
+            return `[!!]${this.issue}`
         },
+    },
+    watch: {
+        counter(value) {
+            if (value > 120) {
+                this.counter = 100
+            }
+        }
     }
 }).mount("#app")

@@ -39,6 +39,9 @@ Vue.createApp({
             if (value > 120) {
                 this.counter = 100
             }
+        },
+        issue2(value, oldValue) {
+            this.formatIssue2 = `[從${oldValue}變成${value}]`
         }
     }
 }).mount("#app")

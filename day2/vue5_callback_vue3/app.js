@@ -10,8 +10,8 @@ const app = Vue.createApp({
         decrease1() { this.counter1 = this.counter1 - 1 },
         increase2(step) { this.counter1 += step },
         decrease2(step) { this.counter1 -= step },
-        setToDo(event) {
-            this.todo = event.target.value
+        setToDo(event, greeting) {
+            this.todo = `${greeting} ${event.target.value}`
         }
     },
 })

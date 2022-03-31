@@ -2,12 +2,19 @@ const app = Vue.createApp({
     data() {
         return {
             counter1: 0,
+            counter2: 0,
             todo: '',
             urgent: "",
             checkedUrgent: ""
         }
     },
     methods: {
+        increase3(step) {
+            this.counter2 += step;
+        },
+        decrease3(step) {
+            this.counter2 -= step;
+        },
         commitUrgent() {
             this.checkedUrgent = this.urgent;
         },

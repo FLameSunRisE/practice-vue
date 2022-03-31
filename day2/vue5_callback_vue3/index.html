@@ -24,9 +24,13 @@
       <button v-on:click="increase2(3)">Increase3</button>
       <button v-on:click="decrease2(3)">Decrease3</button>
       <p>Result1:{{counter1}}</p>
-      <br /> <!-- 3rd -->
-      <input type="text" v-on:input='setToDo($event, "I want to")'/>
-        <p>what we expected to do is:{{todo}}</p>
+      <br />
+      <input type="text" v-on:input='setToDo($event, "I want to")' />
+      <p>what we expected to do is:{{todo}}</p>
+      <form v-on:submit="submitForm">
+        <input type="text" />
+        <button>Login</button>
+      </form>
     </section>
   </body>
 </html>

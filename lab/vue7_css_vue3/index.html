@@ -13,9 +13,27 @@
   </head>
   <body>
     <section id="app">
-      <div class="demo" style="border-color: green">Mountain</div>
-      <div class="demo" style="border-color: blue">Sky</div>
-      <div class="demo" style="border-color: red">Ocean</div>
+      <div
+        class="demo"
+        :style="{borderColor: div1Selected?'green':'#ccc'}"
+        @click="divSelected(1)"
+      >
+        Mountain
+      </div>
+      <div
+        class="demo"
+        :style="{borderColor: div2Selected?'blue':'#ccc'}"
+        @click="divSelected(2)"
+      >
+        Sky
+      </div>
+      <div
+        class="demo"
+        :style="{borderColor: div3Selected?'red':'#ccc'}"
+        @click="divSelected(3)"
+      >
+        Ocean
+      </div>
     </section>
   </body>
 </html>

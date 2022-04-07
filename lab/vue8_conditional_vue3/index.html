@@ -22,7 +22,15 @@
       <p v-if="courses.length===0">No course</p>
       <ul v-else>
         <!-- <li v-for="(c,i) in courses">[{{i}}]{{c}}</li> -->
-        <li v-for="(c,i) in courses" @click="removeCourse(i)">[{{i}}]{{c}}</li>
+        <!-- <li v-for="(c,i) in courses" @click="removeCourse(i)">[{{i}}]{{c}}</li> -->
+        <!-- 未加入key的情境 -->
+        <!-- <li v-for="(c,i) in courses" @click="removeCourse(i)">
+          [{{i}}]{{c}}<input type="text" @click.stop />
+        </li> -->
+        <!-- 加入key去識別資料 -->
+        <li v-for="(c,i) in courses" @click="removeCourse(i)" :key="c">
+          [{{i}}]{{c}}<input type="text" @click.stop />
+        </li>
       </ul>
       <br />
       <ul>
@@ -39,7 +47,6 @@
         </li>
       </ul>
       <br />
-      
     </section>
   </body>
 </html>

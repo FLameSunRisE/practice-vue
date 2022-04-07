@@ -7,11 +7,24 @@
     <course-intro></course-intro> -->
 
     <!-- prop example -->
-    <course-intro id="poop" name="python oop" duration="35"></course-intro>
+    <!-- <course-intro id="poop" name="python oop" duration="35"></course-intro>
     <course-intro
       id="bdpy"
       name="python and big data"
       duration="35"
+    ></course-intro> -->
+
+    <course-intro
+      id="poop"
+      name="python oop"
+      duration="35"
+      current="true"
+    ></course-intro>
+    <course-intro
+      id="bdpy"
+      name="python and big data"
+      duration="35"
+      current="false"
     ></course-intro>
   </div>
 </template>

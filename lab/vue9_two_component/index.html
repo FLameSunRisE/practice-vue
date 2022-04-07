@@ -17,8 +17,21 @@
   <body>
     <section id="app">
       <ul>
-        <li>COMPONENT1</li>
-        <li>COMPONENT2</li>
+        <!-- 原始code -->
+        <!-- <li v-for="course in courses" :key="course.id">
+          <h2>{{course.id}}</h2>
+          <button @click="toggleCourseDetail">Show detail</button>
+          <ul v-if="detailsVisible">
+            <li>{{course.name}}</li>
+            <li>{{course.duration}}</li>
+          </ul>
+        </li> -->
+
+        <!-- 將上方code搬入course-content元件中 -->
+        <course-content></course-content>
+        <course-content></course-content>
+        <course-content></course-content>
+
       </ul>
     </section>
   </body>

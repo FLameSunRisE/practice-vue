@@ -1,9 +1,18 @@
 <template>
   <div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- import component example -->
+    <!-- <course-intro></course-intro>
     <course-intro></course-intro>
-    <course-intro></course-intro>
-    <course-intro></course-intro>
+    <course-intro></course-intro> -->
+
+    <!-- prop example -->
+    <course-intro id="poop" name="python oop" duration="35"></course-intro>
+    <course-intro
+      id="bdpy"
+      name="python and big data"
+      duration="35"
+    ></course-intro>
   </div>
 </template>
 

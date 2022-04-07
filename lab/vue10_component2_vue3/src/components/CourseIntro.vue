@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  props: ["id", "name", "duration"],
   data() {
     return {
       course: { id: "POOP", name: "Python OOP", duration: 35 },

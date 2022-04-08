@@ -10,11 +10,13 @@
     <h1>{{ user3 }}</h1>
     <h3>{{ user3Name }}</h3>
     <h4>{{ user3Age }}</h4>
+    <br />
+    <h1>{{ course }}</h1>
   </section>
 </template>
 
 <script>
-import { ref, reactive, isRef, isReactive } from "vue";
+import { ref, reactive, isReactive, isRef, toRefs } from "vue";
 export default {
   name: "App",
   //data(){ return{userName:"Mark Ho"}}
@@ -30,6 +32,12 @@ export default {
     console.log(
       `user3 is ref?${isRef(user3)}, is reactive?${isReactive(user3)}`
     );
+    const courseRef = toRefs({ courseName: "poop", duration: 35 });
+    console.log(
+      `courseRef is ref?${isRef(courseRef)}, courseRef.duration is ref?${isRef(
+        courseRef.duration
+      )}`
+    );
     setTimeout(function () {
       userNameRef.value = "Meng-Hang Ho";
       ageRef.value += 1;
@@ -37,6 +45,8 @@ export default {
       userRef.value.age += 1;
       user3.userName = "Shu-Yang Chou";
       user3.age += 2;
+      courseRef.courseName = "python and object oriented";
+      courseRef.duration = 70;
     }, 5000);
 
     return {
@@ -48,6 +58,7 @@ export default {
       user3: user3,
       user3Name: user3.userName,
       user3Age: user3.age,
+      course: courseRef,
     };
   },
 };

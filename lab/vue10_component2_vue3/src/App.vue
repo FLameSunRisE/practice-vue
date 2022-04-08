@@ -21,7 +21,6 @@
       :name="course.name"
       :duration="course.duration"
       :current="course.current"
-      @toggle-current="toggleCurrentState"
     ></course-intro>
   </div>
 </template>
@@ -46,6 +45,14 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    console.log("component created");
+    this.emitter.on("toggle-current", (idx) => {
+      console.log(`${idx} should change toggle state`);
+      const course = this.courses.find((c) => c.id == idx);
+      course.current = !course.current;
+    });
   },
   methods: {
     toggleCurrentState(id) {

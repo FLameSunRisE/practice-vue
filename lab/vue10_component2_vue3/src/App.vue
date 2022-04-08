@@ -13,7 +13,7 @@
       name="python and big data"
       duration="35"
     ></course-intro> -->
-
+    <new-course @add-course="addCourse"></new-course>
     <course-intro
       v-for="course in courses"
       :key="course.id"
@@ -21,6 +21,8 @@
       :name="course.name"
       :duration="course.duration"
       :current="course.current"
+      @toggle-current="toggleCurrentState"
+      @delete-current="delCourse"
     ></course-intro>
   </div>
 </template>
@@ -60,6 +62,19 @@ export default {
       const course = this.courses.find((course) => course.id === id);
       course.current = !course.current;
     },
+    addCourse(id, name, duration) {
+      const newCourse = {
+        id: id,
+        name: name,
+        duration: parseInt(duration),
+        current: false,
+      };
+      this.courses.push(newCourse);
+    },
+    delCourse(id) {
+      console.log('del :' + id)
+      this.courses = this.courses.filter((course)=>course.id !== id)
+    },
   },
 };
 </script>
@@ -92,5 +107,13 @@ export default {
   border: 1px sold #ff0077;
   background-color: #c0ffee;
   color: black;
+}
+#app form {
+  box-shadow: 0 4px 8px rgba(0, 0, 128, 0.26);
+  margin: 1rem auto;
+  border-radius: 5px;
+  text-align: center;
+  width: 50%;
+  max-width: 40rem;
 }
 </style>

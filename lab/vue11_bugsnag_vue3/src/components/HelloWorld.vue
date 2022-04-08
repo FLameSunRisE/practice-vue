@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button v-on:click="recordBug">trigger a bug</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -31,11 +32,19 @@
 </template>
 
 <script>
+import Bugsnag from '@bugsnag/js'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  method: {
+    recordBug() {
+      console.log("oops, something wrong happen");
+      Bugsnag.notify(new Error("something bad happen in Helloworld.vue...."));
+    },
+  },
 }
 </script>
 

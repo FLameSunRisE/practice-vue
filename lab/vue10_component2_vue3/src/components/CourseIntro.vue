@@ -1,5 +1,6 @@
 <template>
   <li>
+    <h2>props current==>{{ current }}</h2>
     <h2>{{ id }}-{{ isCurrent }}</h2>
     <button @click="toggleCourseDetail">Show detail</button>
     <button @click="toggleCurrent">toggle current class</button>
@@ -11,7 +12,18 @@
 </template>
 <script>
 export default {
-  props: ["id", "name", "duration", "current"],
+  props: {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    duration: {
+      type: Number,
+      required: true,
+      validator: function (value) {
+        return value > 7;
+      },
+    },
+    current: { type: Boolean, required: false },
+  },
   data() {
     return {
       detailsVisible: true,
@@ -25,6 +37,7 @@ export default {
     toggleCurrent() {
       this.isCurrent = !this.isCurrent;
       //this.current = !this.current;
+      this.$emit("toggle-current", this.id);
     },
   },
 };
